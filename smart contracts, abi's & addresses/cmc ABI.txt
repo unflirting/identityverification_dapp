@@ -1,0 +1,81 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "individual",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "serviceProvider",
+				"type": "address"
+			}
+		],
+		"name": "grantConsent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "individual",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "serviceProvider",
+				"type": "address"
+			}
+		],
+		"name": "revokeConsent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "individual",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "serviceProvider",
+				"type": "address"
+			}
+		],
+		"name": "checkConsent",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"name": "consent",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

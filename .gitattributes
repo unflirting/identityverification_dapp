@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.sol linguist-language=Solidity
+*.html linguist-lagnuage=html
+*.css linguist-language=css
+*.js linguist-language=JavaScript

@@ -1,0 +1,6 @@
+Deployed Contract Addresses:
+Identity Attestation Contract: 0xEe276E34be4Ff8d66399A434Ef8c88F97fE8157f
+
+Consent Management Contract: 0x0Ae8BEA753f1d82F25D9D680ef5aD6b5785bD2C4
+
+Identity Verification Contract: 0x285c3b2AaAEe3F748AC659FF1dfa1ce32D925693

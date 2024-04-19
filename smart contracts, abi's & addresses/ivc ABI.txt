@@ -1,0 +1,73 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_identityAttestationContract",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_consentManagementContract",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "consentManagementContract",
+		"outputs": [
+			{
+				"internalType": "contract ConsentManagementContract",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "identityAttestationContract",
+		"outputs": [
+			{
+				"internalType": "contract IdentityAttestationContract",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "individual",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "serviceProvider",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "attribute",
+				"type": "string"
+			}
+		],
+		"name": "verifyIdentity",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

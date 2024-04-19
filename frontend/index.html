@@ -1,0 +1,59 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Identity Verification Dapp PoC</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <h1>Identity Verification Dapp - Proof of Concept</h1>
+    <button id="connectWallet">Connect Wallet</button>
+
+    <h2 class="white-header">Register Identity Attribute</h2>
+    <form id="registerIdentityAttributeForm">
+      <input type="text" id="registerAttribute" placeholder="Attribute" required>
+      <input type="text" id="registerValue" placeholder="Value" required>
+      <button type="submit">Register</button>
+    </form>
+
+    <h2 class="white-header">Attest Identity Attribute</h2>
+    <form id="attestIdentityAttributeForm">
+      <input type="text" id="attestIndividual" placeholder="Individual Address" required>
+      <input type="text" id="attestAttribute" placeholder="Attribute" required>
+      <input type="text" id="attestValue" placeholder="Value" required>
+      <button type="submit">Attest</button>
+    </form>
+
+    <h2 class="white-header">Grant and Revoke Consent</h2>
+    <div id="grantAndRevokeConsentBox">
+      <form id="grantConsentForm">
+        <input type="text" id="grantIndividual" placeholder="Individual Address" required>
+        <input type="text" id="grantServiceProvider" placeholder="Service Provider Address" required>
+        <button type="submit">Grant Consent</button>
+      </form>
+      <form id="revokeConsentForm">
+        <input type="text" id="revokeIndividual" placeholder="Individual Address" required>
+        <input type="text" id="revokeServiceProvider" placeholder="Service Provider Address" required>
+        <button type="submit">Revoke Consent</button>
+      </form>
+    </div>
+
+    <h2 class="white-header">Verify Identity</h2>
+    <form id="verifyIdentityForm">
+      <input type="text" id="verifyIndividual" placeholder="Individual Address" required>
+      <input type="text" id="verifyServiceProvider" placeholder="Service Provider Address" required>
+      <input type="text" id="verifyAttribute" placeholder="Attribute" required>
+      <button type="submit">Verify</button>
+      <p id="verifyResult"></p>
+    </form>
+
+    <!-- Web3Modal -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+    <!-- Web3.js -->
+    <script src="https://unpkg.com/web3modal@1.10.0/dist/web3modal.min.js"></script>
+    <!-- Wallet Provider Libraries (e.g., WalletConnect, MetaMask) -->
+    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.8.3/dist/web3provider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@metamask/providers@10.0.1/dist/metamask-provider.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
