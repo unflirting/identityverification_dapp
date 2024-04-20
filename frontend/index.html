@@ -9,6 +9,7 @@
     <h1>Identity Verification Dapp - Proof of Concept</h1>
     <button id="connectWallet">Connect Wallet</button>
 
+    <!-- Register Identity Attribute Form -->
     <h2 class="white-header">Register Identity Attribute</h2>
     <form id="registerIdentityAttributeForm">
       <input type="text" id="registerAttribute" placeholder="Attribute" required>
@@ -16,6 +17,7 @@
       <button type="submit">Register</button>
     </form>
 
+    <!-- Attest Identity Attribute Form -->
     <h2 class="white-header">Attest Identity Attribute</h2>
     <form id="attestIdentityAttributeForm">
       <input type="text" id="attestIndividual" placeholder="Individual Address" required>
@@ -24,6 +26,7 @@
       <button type="submit">Attest</button>
     </form>
 
+    <!-- Grant and Revoke Consent Forms -->
     <h2 class="white-header">Grant and Revoke Consent</h2>
     <div id="grantAndRevokeConsentBox">
       <form id="grantConsentForm">
@@ -38,6 +41,7 @@
       </form>
     </div>
 
+    <!-- Verify Identity Form -->
     <h2 class="white-header">Verify Identity</h2>
     <form id="verifyIdentityForm">
       <input type="text" id="verifyIndividual" placeholder="Individual Address" required>
@@ -47,6 +51,7 @@
       <p id="verifyResult"></p>
     </form>
 
+    <!-- External JavaScript Libraries -->
     <!-- Web3Modal -->
     <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
     <!-- Web3.js -->
@@ -54,6 +59,7 @@
     <!-- Wallet Provider Libraries (e.g., WalletConnect, MetaMask) -->
     <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.8.3/dist/web3provider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@metamask/providers@10.0.1/dist/metamask-provider.min.js"></script>
+    <!-- Custom Application JavaScript -->
     <script src="app.js"></script>
   </body>
 </html>

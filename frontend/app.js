@@ -1,4 +1,5 @@
 // JavaScript (app.js)
+// Get references to the HTML elements
 const connectWallet = document.getElementById('connectWallet');
 const registerIdentityAttributeForm = document.getElementById('registerIdentityAttributeForm');
 const attestIdentityAttributeForm = document.getElementById('attestIdentityAttributeForm');
@@ -6,12 +7,14 @@ const grantConsentForm = document.getElementById('grantConsentForm');
 const revokeConsentForm = document.getElementById('revokeConsentForm');
 const verifyIdentityForm = document.getElementById('verifyIdentityForm');
 
+// Define the contract addresses
 const identityAttestationContractAddress = '0xEe276E34be4Ff8d66399A434Ef8c88F97fE8157f';
 const consentManagementContractAddress = '0x0Ae8BEA753f1d82F25D9D680ef5aD6b5785bD2C4';
 const identityVerificationContractAddress = '0x285c3b2AaAEe3F748AC659FF1dfa1ce32D925693';
 
 // Replace with the actual ABI for each contract
 const identityAttestationContractABI = [
+	 // Contract functions and their details
 	{
 		"inputs": [
 			{
@@ -93,6 +96,7 @@ const identityAttestationContractABI = [
 	}
 ];
 const consentManagementContractABI = [
+	 // Contract functions and their details
 	{
 		"inputs": [
 			{
@@ -174,6 +178,7 @@ const consentManagementContractABI = [
 	}
 ];
 const identityVerificationContractABI = [
+	 // Contract functions and their details
 	{
 		"inputs": [
 			{
@@ -252,11 +257,15 @@ let identityAttestationContract;
 let consentManagementContract;
 let identityVerificationContract;
 
+// Initialize the web3 provider and contracts
 async function init() {
+	  // Check if MetaMask is available
   if (typeof window.ethereum!== 'undefined') {
+// Request access to the user's accounts
     await window.ethereum.request({ method: 'eth_requestAccounts' });
     web3 = new Web3(window.ethereum);
 
+// Create instances of the contracts
     identityAttestationContract = new web3.eth.Contract(
       identityAttestationContractABI,
       identityAttestationContractAddress
@@ -276,6 +285,7 @@ async function init() {
   }
 }
 
+// Event listeners for button clicks and form submissions
 connectWallet.addEventListener('click', async () => {
   await init();
   console.log('Connected to wallet:', (await web3.eth.getAccounts())[0]);
@@ -337,6 +347,14 @@ verifyIdentityForm.addEventListener('submit', async (event) => {
   //resultElement.innerText = verificationResult? 'True' : 'False';
 });
 
+
+//const declaring constant variable, assigning value, as its block scoped only accessible within the block which is the function
+//async function special type of function that allows you to write asynchronous code using await keyword
+//await can only be used inside async function and it pauses execution of the function until a promise is resolved or rejected
+//async function always return a promise. if function explicitly returns a value, the promise will be resolved with that value. If the function throws an error or an exception, 
+//the promise will be rejected with that error.
+
+// Function to register an identity attribute
 async function registerIdentityAttribute(attribute, value) {
   const from = (await web3.eth.getAccounts())[0];
   const registerFunction = identityAttestationContract.methods.registerIdentityAttribute(attribute, value);
@@ -344,6 +362,7 @@ async function registerIdentityAttribute(attribute, value) {
   console.log('Registered identity attribute:', transaction);
 }
 
+// Function to grant consent
 async function attestIdentity(individual, attribute, value) {
   const from = (await web3.eth.getAccounts())[0];
   const attestFunction = identityAttestationContract.methods.attestIdentity(individual, attribute, value);
@@ -351,6 +370,7 @@ async function attestIdentity(individual, attribute, value) {
   console.log('Attested identity:', transaction);
 }
 
+// Function to revoke consent
 async function grantConsent(individual, serviceProvider) {
   const from = (await web3.eth.getAccounts())[0];
   const grantFunction = consentManagementContract.methods.grantConsent(individual, serviceProvider);
@@ -358,6 +378,7 @@ async function grantConsent(individual, serviceProvider) {
   console.log('Granted consent:', transaction);
 }
 
+// Function to verify identity
 async function revokeConsent(individual, serviceProvider) {
   const from = (await web3.eth.getAccounts())[0];
   const revokeFunction = consentManagementContract.methods.revokeConsent(individual, serviceProvider);
@@ -365,9 +386,15 @@ async function revokeConsent(individual, serviceProvider) {
   console.log('Revoked consent:', transaction);
 }
 
+// Function to verify identity
 async function verifyIdentity(individual, serviceProvider, attribute) {
   const from = (await web3.eth.getAccounts())[0];
   const verificationFunction = identityVerificationContract.methods.verifyIdentity(individual, serviceProvider, attribute);
   const verificationResult = await verificationFunction.call();
   return verificationResult;
 }
+
+//Identityverification.methods is an object provided by web3 library that represents the methods (functions) defined in the identityVerificationContract
+//verifyIdentity is the name of function in IVC contract that I want to call
+//(individual, servicerpovider, attribute) are arguments that pass to verifyIdentity function. They specify individual address service provider address and attribute used for verification
+//verificationFunction is reference to verifyIdentity function with specified arguments. Can be used to call function and retrieve result of verification.
